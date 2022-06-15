@@ -20,16 +20,32 @@ impl Symbol {
 /// A trait used to add formatting attributes to displayable items.
 pub trait Fmt: Sized {
     /// Give this value the specified foreground colour
+    ///
+    /// # Example
+    /// ```rust
+    /// use unidraw::symbol::Fmt;
+    /// use yansi::Color;
+    ///
+    /// println!("{}", "Hello".fg(Color::Red))
+    /// ```
     fn fg(self, color: Color) -> Paint<Self> {
         Paint::new(self).fg(color)
     }
 
     /// Give this value the specified background colour
+    ///
+    /// # Example
+    /// ```rust
+    /// use unidraw::symbol::Fmt;
+    /// use yansi::Color;
+    ///
+    /// println!("{}", "Hello".bg(Color::Green))
+    /// ```
     fn bg(self, color: Color) -> Paint<Self> {
         Paint::new(self).bg(color)
     }
 }
-impl<T: std::fmt::Display> Fmt for T {}
+impl<T> Fmt for T {}
 
 #[cfg(test)]
 mod tests {
