@@ -10,7 +10,6 @@ jobs:
     steps:
           - name: Cargo docs
             uses: actions/checkout@v2
-            uses: actions-rs/install@v0.1
             run: cargo doc
 
           - name: Deploy Docs
