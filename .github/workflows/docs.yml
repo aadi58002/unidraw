@@ -8,12 +8,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-          - name: Cargo docs
-            uses: actions/checkout@v2
-            run: cargo doc
+      - name: Cargo docs
+        uses: actions/checkout@v2
+        run: cargo doc
 
-          - name: Deploy Docs
-            uses: peaceiris/actions-gh-pages@v3
-            with:
-              github_token: '${{ secrets.GITHUB_TOKEN }}'
-              publish_dir: target/doc/unidraw/index.html
+      - name: Deploy Docs
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: '${{ secrets.GITHUB_TOKEN }}'
+          publish_dir: target/doc/unidraw/index.html
