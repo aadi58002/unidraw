@@ -8,8 +8,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
       - name: Cargo docs
-        uses: actions/checkout@v2
         run: cargo doc
 
       - name: Deploy Docs
