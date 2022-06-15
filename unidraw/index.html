@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="UniDraw"><meta name="keywords" content="rust, rustlang, rust-lang, unidraw"><title>unidraw - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../dark.css" disabled><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script src="../crates.js"></script><script defer src="../main.js"></script>
+    <noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../unidraw/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div>
+        </a><h2 class="location"></h2>
+    </nav>
+    <nav class="sidebar"><a class="sidebar-logo" href="../unidraw/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div>
+        </a><h2 class="location"><a href="#">Crate unidraw</a></h2><div class="sidebar-elems"><div class="block"><ul><li class="version">Version 0.1.0</li><li><a id="all-types" href="all.html">All Items</a></li></div></ul><section><div class="block"><ul><li><a href="#modules">Modules</a></li></ul></div></section><div id="sidebar-vars" data-name="unidraw" data-ty="mod" data-relpath=""></div><script defer src="sidebar-items.js"></script></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../unidraw/index.html"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="main-heading">
+    <h1 class="fqn"><span class="in-band">Crate <a class="mod" href="#">unidraw</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/unidraw/lib.rs.html#1-42">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="unidraw"><a href="#unidraw">UniDraw</a></h2>
+<p>UniDraw aims to provide 3 basic abstraction layers over the raw terminal access (using crossterm backend), in order
+to print or draw complex <a href="shape/struct.Shape.html"><code>Shape</code></a>s and connect them via flexible arrows (called <a href="draw/path/struct.Path.html"><code>Path</code></a>).</p>
+<ul>
+<li>
+<p>Layer 0: Consisting of</p>
+<ul>
+<li><a href="symbol/struct.Symbol.html" title="symbol::Symbol"><code>symbol::Symbol</code></a> allowing you to print commonly used unicode symbols</li>
+<li><a href="symbol/trait.Fmt.html" title="symbol::Fmt"><code>symbol::Fmt</code></a> allowing you to colorize fg/bg of any printable</li>
+<li><a href="draw/shape/struct.Shape.html" title="draw::shape::Shape"><code>draw::shape::Shape</code></a> representing any generic shape</li>
+<li><a href="draw/shape/predefined/index.html" title="draw::shape::predefined"><code>draw::shape::predefined</code></a> containing a few of predefined shapes</li>
+<li><a href="render/struct.RenderingCtx.html" title="render::RenderingCtx"><code>render::RenderingCtx</code></a> with <a href="render/enum.RenderingMode.html#variant.Cli"><code>RenderingMode::Cli</code></a> (for print &amp; exit)
+or <a href="render/enum.RenderingMode.html#variant.Tui"><code>RenderingMode::Tui</code></a> (for print &amp; loop over events).</li>
+</ul>
+</li>
+<li>
+<p>Layer 1: Consisting of</p>
+<ul>
+<li>Once a Shape is defined it can be organized into <a href="render/struct.Matrix.html" title="render::Matrix"><code>render::Matrix</code></a> of terminal dimensions using the <a href="layout/trait.Layout.html" title="layout::Layout"><code>layout::Layout</code></a>s.</li>
+<li>Layout expects a <a href="layout/enum.LayoutMixer.html" title="layout::LayoutMixer"><code>layout::LayoutMixer</code></a> for handling the layout, in case any overlapping happens.</li>
+<li>Various types of layouts are defined in the <a href="layout/predefined/index.html" title="layout::predefined"><code>layout::predefined</code></a>, if it doesn’t meet your needs you are free to define your own layout.</li>
+</ul>
+</li>
+<li>
+<p>Layer 2: Consisting of</p>
+<ul>
+<li><a href="draw/path/struct.Path.html" title="draw::path::Path"><code>draw::path::Path</code></a> in order to connect any <code>Edge</code> to any another <code>Edge</code> (including on the same Shape itself),
+with 2 <a href="draw/path/trait.PathAlgorithm.html" title="draw::path::PathAlgorithm"><code>draw::path::PathAlgorithm</code></a>s: <code>MinDist</code> and <code>NearestBorder</code></li>
+</ul>
+<p><br><sub>MiscInfo: Shapes are represented by <a href="draw/struct.Anchor.html" title="draw::Anchor"><code>draw::Anchor</code></a>s along with their <a href="draw/type.AnchorDirection.html" title="draw::AnchorDirection"><code>draw::AnchorDirection</code></a>, initially organized into
+into a buffer of size equivalent to the terminal size in the <code>RenderingCtx</code>, which is then efficiently rendered.</sub></p>
+</li>
+</ul>
+<h3 id="example"><a href="#example">Example:</a></h3>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">std::io</span>;
+<span class="kw">use</span> <span class="ident">unidraw::terminal</span>;
+
+<span class="kw">fn</span> <span class="ident">main</span>() {
+    <span class="kw">let</span> <span class="ident">stdout</span> <span class="op">=</span> <span class="ident">io::stdout</span>();
+    <span class="kw">let</span> <span class="ident">term</span> <span class="op">=</span> <span class="ident">terminal::cli</span>(<span class="ident">stdout</span>);
+}</code></pre></div>
+</div></details><h2 id="modules" class="small-section-header"><a href="#modules">Modules</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="mod" href="draw/index.html" title="unidraw::draw mod">draw</a></div><div class="item-right docblock-short"></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="layout/index.html" title="unidraw::layout mod">layout</a></div><div class="item-right docblock-short"></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="render/index.html" title="unidraw::render mod">render</a></div><div class="item-right docblock-short"></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="symbol/index.html" title="unidraw::symbol mod">symbol</a></div><div class="item-right docblock-short"></div></div></div></section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="unidraw" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.61.0 (fe5b13d68 2022-05-18)" ></div>
+</body></html>

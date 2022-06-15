@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["RenderingMode",""]],"struct":[["Dimension","Represents rows & cols in a 2d plane"],["Matrix","Represents a 2d plane"],["RenderingCtx","Rendering Context is a context where buffer lies and unicode `draw::Cell`s can be drawn on (usually by `layout::Layout`s)."]]});

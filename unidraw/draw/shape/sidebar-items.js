@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["predefined",""]],"struct":[["Shape","Represents a generic shape"],["ShapeEdges",""]]});
